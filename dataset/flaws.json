@@ -1,0 +1,14 @@
+[
+  {
+    "code": "module no_reset(input clk, output reg [3:0] out); always @(posedge clk) out <= out + 1; endmodule",
+    "flaw": "Missing reset signal",
+    "fix": "Add asynchronous reset",
+    "confidence": 90
+  },
+  {
+    "code": "module loop(input a, output reg b); always @(a) b <= b + a; endmodule",
+    "flaw": "Combinational loop",
+    "fix": "Break loop with register",
+    "confidence": 85
+  }
+]
