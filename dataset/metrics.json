@@ -1,5 +1,5 @@
 {
-  "clock_frequency": "100 MHz",
+  "clock_frequency": "1 GHz",
   "power_estimate": "50 mW",
   "gate_count": 5000
 }
