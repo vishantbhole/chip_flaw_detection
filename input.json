@@ -1,9 +1,9 @@
 {
   "verilog": "module counter(input clk, output reg [3:0] out);\n  always @(posedge clk)\n    out <= out + 1;\nendmodule",
   "metrics": {
-    "clock_frequency": "100 MHz",
+    "clock_frequency": "1 GHz",
     "power_estimate": "50 mW",
     "gate_count": 5000
   },
-  "prompt": "Analyze this Verilog code for hardware flaws (e.g., timing, logic, power, security issues). List any flaws found with a description, location, suggested fix, and confidence (0-100%). Return the result as a JSON array. If no flaws, return []. Code:\nmodule counter(input clk, output reg [3:0] out);\n  always @(posedge clk)\n    out <= out + 1;\nendmodule\nMetrics:\n{\n  \"clock_frequency\": \"100 MHz\",\n  \"power_estimate\": \"50 mW\",\n  \"gate_count\": 5000\n}"
+  "prompt": "Analyze this Verilog code and metrics for hardware flaws (timing, logic, power, security). Focus on timing violations, especially if the clock frequency is too high for the gate count (e.g., 1 GHz for 5000 gates may be unrealistic). For each flaw, provide a description, location, suggested fix (e.g., reduce clock frequency or optimize critical path), and confidence (0-100%). Return the result as a JSON array, e.g., [{'flaw': 'description', 'location': 'where', 'fix': 'solution', 'confidence': 80}]. If no flaws, return []. Code:\nmodule counter(input clk, output reg [3:0] out);\n  always @(posedge clk)\n    out <= out + 1;\nendmodule\nMetrics:\n{\n  \"clock_frequency\": \"1 GHz\",\n  \"power_estimate\": \"50 mW\",\n  \"gate_count\": 5000\n}"
 }

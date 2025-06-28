@@ -1,0 +1,8 @@
+LLM Output: [
+  {
+    "flaw": "Clock frequency is too high for gate count",
+    "location": "The clock frequency of 1 GHz is causing timing violations due to the high number of gates (5000) in the counter module.",
+    "fix": "Reduce the clock frequency to a more realistic value, such as 10 MHz. This will reduce the risk of timing violations and improve performance.",
+    "confidence": 90
+  }
+]

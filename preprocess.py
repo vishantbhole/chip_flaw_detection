@@ -23,9 +23,11 @@ def prepare_input(verilog_file, metrics_file=None):
         "verilog": verilog_code,
         "metrics": metrics,
         "prompt": (
-            "Analyze this Verilog code for hardware flaws (e.g., timing, logic, power, security issues). "
-            "List any flaws found with a description, location, suggested fix, and confidence (0-100%). "
-            "Return the result as a JSON array. If no flaws, return []. "
+            "Analyze this Verilog code and metrics for hardware flaws (timing, logic, power, security). "
+            "Focus on timing violations, especially if the clock frequency is too high for the gate count (e.g., 1 GHz for 5000 gates may be unrealistic). "
+            "For each flaw, provide a description, location, suggested fix (e.g., reduce clock frequency or optimize critical path), and confidence (0-100%). "
+            "Return the result as a JSON array, e.g., [{'flaw': 'description', 'location': 'where', 'fix': 'solution', 'confidence': 80}]. "
+            "If no flaws, return []. "
             f"Code:\n{verilog_code}\nMetrics:\n{json.dumps(metrics, indent=2)}"
         )
     }
